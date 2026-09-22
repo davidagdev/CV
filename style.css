@@ -1,72 +1,101 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    font-size: large;
+    font-size: medium;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 33% 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: 
-    "header-area header-area"
-    "aside-area  main-area"
-    "footer-area footer-area";
-  gap: 15px;
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 33% 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header-area header-area"
+        "aside-area  main-area"
+        "footer-area footer-area";
+    background-color: #048;
 }
 
 header { grid-area: header-area; padding: 10px;}
-aside  { grid-area: aside-area; padding: 10px;}
-main   { grid-area: main-area; padding: 10px; }
+aside  { grid-area: aside-area; padding:10px;}
+main   { grid-area: main-area; padding: 10px;}
 footer { grid-area: footer-area; padding: 10px;}
 
 header {
-  background-color: #048;
-  color: #EC6;
-  display: grid;
-  grid-template-columns: 33% 67%;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "controls-area controls-area"
-    "profile-area  summary-area";
-  gap: 10px; 
-}
-
-.controls {
-  grid-area: controls-area;
+    color: #EC6;
+    display: grid;
+    grid-template-columns: 33% 67%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "profile-area summary-area";
+    gap: 10px;
 }
 
 .profile-container {
-  grid-area: profile-area;
+    grid-area: profile-area;
 }
 
 .profile-summary {
-  grid-area: summary-area;
+    grid-area: summary-area;
 }
 
 .profile-container {
-  text-align: center;
+    text-align: center;
 }
 
-.profile-summary{
-  text-align: justify;
-  padding: 5mm;
+.profile-summary {
+    text-align: justify;
+    padding: 5mms;
 }
+
 aside {
-  background-color: #048;
-  color: #EC6;  
-  padding: 5mm;
+    color: #EC6;
+    padding: 10px;
 }
 
 aside ul {
-  list-style-type: none;
-  padding-left: 1cm;
-  padding-bottom: 5mm;
-  margin: 0;
+    list-style-type: none;
+    padding-left: 0.25cm;
+    padding-bottom: 5mm;
+    margin: 0;
+}
+
+main ul {
+    list-style-type: none;
+    padding-left: 0.25cm;
+    padding-bottom: 5mm;
+    padding-top: 2mm;
+    margin: 0;
+}
+
+.svg-languages {
+    font-family: inherit;
+    width: 100%;
+    height: auto;
+}
+
+.svg-languages .label {
+    fill: #EC6;
+    font-size:19px;
+}
+
+.svg-languages .header {
+    font-weight: bold;
+    fill: #EC6;
+    font-size: 19px;
+}
+
+.svg-languages .bar-active {
+    fill: #EC6;
+    rx: 2px;
+}
+
+.svg-languages .bar-inactive {
+    fill: rgba(238, 204, 102, 0.25);
+    rx: 2px;
 }
 
 main {
@@ -79,49 +108,69 @@ footer {
     background-color: #EC6;
     color: #048;
 }
+
 a {
     color: #EC6;
 }
 
-#languages .percent{
-    position: relative;
-    width: 100%;
-    height: 10px;
-    background: #ddd;
-    display: block;
-    margin-top: 5px;
+.tags-container  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
 }
 
-#languages .percent div{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: #EC6;
+.tag {
+    background-color: transparent;
+    color: #EC6;
+    border: 1.5px solid #EC6;
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
 }
 
-table  {
-    padding: 20px;
-    border: 1px solid #EC6;
-    border-collapse: collapse;
-    text-align: center;
-    margin: auto;
+.tag:hover {
+    background-color: #EC6;
+    color: #048;
 }
 
-td {
-    border: none;
-    border-collapse: collapse;
-    text-align: center;
-    padding: 3px;
+small {
+    font-size: 10px;
 }
 
-thead {
+main, footer, aside {
+    margin: 0;
+}
+
+main > *:last-child,
+aside > *:last-child {
+    margin-bottom: 0;
+}
+
+.year{
+    margin-top: 2mm;
+}
+
+.educational-institution {
+    margin-bottom: 2mm;
+}
+
+main .year{
+    background-color: transparent;
+    color: #048;
+    border: 2px solid #048;
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 14px;
     font-weight: bold;
-}
-
-tbody tr {
-    background-color: #048;
-
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    max-width: fit-content;
 }
 
 @media print {
@@ -129,10 +178,10 @@ tbody tr {
         margin: 0;
     }
     body {
-        background: white;
-        margin: 0 ;
+        background: #048;
+        margin: 0;
         padding: 0;
-        display: block; 
+        display: flexbox;
     }
     .container {
         margin: 0;
@@ -141,4 +190,9 @@ tbody tr {
         box-shadow: none;
         display: flex;
     }
-} 
+
+    a[href] {
+    text-decoration: underline;
+    color: #EC6 !important;
+  }
+}
